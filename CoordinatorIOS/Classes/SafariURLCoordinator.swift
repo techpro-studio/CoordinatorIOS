@@ -52,7 +52,11 @@ public final class SafariURLCoordinator: ModalCoordinator, SFSafariViewControlle
 
 }
 
-public extension Coordinator {
+public protocol SafariURLCoordinatorParent {
+
+}
+
+public extension SafariURLCoordinatorParent where Self: Coordinator {
 
     func observeSafariURL(safariRoute: OpenSafariURLRoute, andShowIn context: UIViewController) {
         safariRoute.openSafariURL = { [weak self, weak context] url in

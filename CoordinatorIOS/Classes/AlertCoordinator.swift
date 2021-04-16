@@ -54,7 +54,12 @@ final public class AlertCoordinator: ModalCoordinator {
     }
 }
 
-public extension Coordinator {
+
+public protocol AlertCoordinatorParent {
+    
+}
+
+public extension AlertCoordinatorParent where Self: Coordinator {
 
     func observeAlert(alertRoute: ShowAlertRoute, andShowIn context: UIViewController) {
         alertRoute.showAlert = { [weak self, weak context] alertController in
